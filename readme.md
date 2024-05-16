@@ -3,6 +3,19 @@
 This project implements a book recommendation system using Flask, incorporating both popularity-based and collaborative filtering approaches. Let's delve into the implementation details:
 Implementation Details
 
+## Demo
+* Menu Home page :
+
+![img.png](img.png)
+
+* Search page
+* 
+![img_2.png](img_2.png)
+
+*  Recommendations Pop up Upon search
+
+![img_1.png](img_1.png)
+
 Setup
 
 Dependencies: Ensure Python is installed on your system. Install required dependencies using pip:
