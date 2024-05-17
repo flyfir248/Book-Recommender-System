@@ -5,40 +5,93 @@
     <title>Book Recommender System</title>
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <style>
+        /* Custom styles */
+        body {
+            background-color: #6441A4; /* Set background color to a dark purple */
+            color: #FFFFFF; /* Set text color to white */
+            font-family: Arial, sans-serif; /* Use Arial font */
+        }
+        .navbar {
+            background-color: #9146ff !important; /* Set navbar background color to a shade of purple */
+            border-color: #9146ff; /* Set navbar border color to match background */
+            border-radius: 0; /* Remove border radius */
+        }
+        .navbar-brand {
+            color: #ffffff !important; /* Set navbar brand text color to white */
+            font-size: 24px; /* Set navbar brand font size */
+            font-weight: bold; /* Set font weight to bold */
+            text-transform: uppercase; /* Convert text to uppercase */
+        }
+        .nav > li > a {
+            color: #ffffff !important; /* Set navbar links text color to white */
+            font-size: 16px; /* Set navbar links font size */
+            text-transform: uppercase; /* Convert text to uppercase */
+            padding: 15px 20px; /* Add padding to navbar links */
+        }
+        .navbar-nav {
+            margin: 0 auto; /* Center align navbar items */
+            display: table; /* Make navbar items behave like table */
+            table-layout: fixed; /* Set table layout to fixed */
+            width: auto; /* Set width to auto */
+        }
+        .navbar-collapse {
+            text-align: center; /* Center align collapsed navbar items */
+        }
+        .navbar-toggle {
+            margin-right: 0; /* Remove margin from navbar toggle */
+        }
+        .navbar-toggle .icon-bar {
+            background-color: #ffffff; /* Set color of navbar toggle icon bars to white */
+        }
+        .container {
+            padding-top: 50px; /* Add top padding to container */
+        }
+        .recommend-title {
+            font-size: 36px; /* Set title font size */
+            margin-bottom: 30px; /* Add bottom margin to title */
+            text-align: center; /* Center align title */
+        }
+        .book-card {
+            margin-bottom: 30px; /* Add bottom margin to book cards */
+        }
+        .card-body {
+            background-color: #9146ff; /* Set card body background color to a darker shade of purple */
+            color: #FFFFFF; /* Set text color inside card body to white */
+            padding: 20px; /* Add padding to card body */
+            border-radius: 5px; /* Add border radius to card body */
+        }
+        .card-body img {
+            max-height: 200px; /* Limit maximum height of book images */
+            object-fit: cover; /* Ensure images maintain aspect ratio and cover the entire space */
+            border-radius: 5px; /* Add border radius to book images */
+            margin-bottom: 15px; /* Add bottom margin to book images */
+        }
+        .card-body p, .card-body h4 {
+            margin: 0; /* Remove margin from paragraph and heading */
+        }
+    </style>
 </head>
-<style>
-    /* Custom styles */
-    body {
-        background-color: black; /* Set background color to black */
-        padding-top: 70px; /* Add padding to the top of the body */
-    }
-    .navbar {
-        background-color: #00a65a !important; /* Set navbar background color to green */
-        margin-bottom: 0; /* Remove bottom margin from navbar */
-    }
-    .navbar-brand {
-        color: white !important; /* Set navbar brand text color to white */
-    }
-    .navbar-nav > li > a {
-        color: white !important; /* Set navbar links text color to white */
-    }
-    .book-title {
-        margin-top: 20px; /* Add top margin to book title */
-    }
-</style>
 <body>
 
     <!-- Navbar -->
-    <nav class="navbar navbar-fixed-top">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
-                <a class="navbar-brand">My Book Recommender</a>
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">My Book Recommender</a>
             </div>
-            <ul class="nav navbar-nav">
-                <li><a href="/">Home</a></li>
-                <li><a href="/recommend">Recommend</a></li>
-                <li><a>Contact</a></li>
-            </ul>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/recommend">Recommend</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
         </div>
     </nav>
 
@@ -46,13 +99,13 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h1 class="book-title text-center">Top 50 Books</h1>
+                <h1 class="recommend-title">Top 50 Books</h1>
             </div>
 
             <!-- Book cards -->
             {% for i in range(book_name|length) %}
             <div class="col-md-3">
-                <div class="card">
+                <div class="card book-card">
                     <img class="card-img-top" src="{{ image[i] }}" alt="{{ book_name[i] }}">
                     <div class="card-body">
                         <h4 class="card-title">{{ book_name[i] }}</h4>
@@ -65,6 +118,11 @@
             {% endfor %}
         </div>
     </div>
+
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
 </body>
 </html>
